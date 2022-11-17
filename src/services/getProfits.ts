@@ -16,7 +16,9 @@ export const getTotalSum = (arrSum: IMoySklad[]) => {
 
 export const getProfits = async () => {
   try {
-    const profits = await axios.get("http://localhost:4000/api/moysklad");
+    const profits = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/moysklad`
+    );
     const totalSum = getTotalSum(profits.data);
 
     return { profits: profits.data, totalSum };
