@@ -1,16 +1,17 @@
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface INavigation {
   setAnchor: (e: boolean) => void;
 }
 
 const Navigation: FC<INavigation> = ({ setAnchor }) => {
-  // const router = useRouter();
+  const navigate = useNavigate();
 
   const hideMenu = () => setAnchor(false);
   const handleClick = (link: string) => {
-    // router.push(link);
+    navigate(link);
     hideMenu();
   };
 

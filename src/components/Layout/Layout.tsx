@@ -1,12 +1,14 @@
 import { FC } from "react";
+import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import { ILayout } from "./Layout.interface";
 
-const Layout: FC<ILayout> = ({ children }) => {
+const Layout: FC = () => {
   return (
     <div>
       <Header />
-      <main className="p-5 py-10">{children}</main>
+      <main className="px-5 py-10">
+        <Outlet />
+      </main>
     </div>
   );
 };

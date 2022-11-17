@@ -5,8 +5,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import React, { FC, useState } from "react";
+import { IMoySklad } from "../../util/interfaces/moysklad.interface";
 import useNumberFormat from "./../../hooks/useNumberFormat";
-import { IMoySklad } from "./../../util/interfaces/moysklad.interface";
 import EnhancedTableHead from "./EnhancedTableHead";
 import { Order, TMoySklad } from "./TableProfit.interface";
 import {
@@ -74,19 +74,19 @@ const TableProfit: FC<{ rows: IMoySklad[] }> = ({ rows }) => {
                         </div>
                       </TableCell>
                       <TableCell align="right">
-                        {numberFormat(row.sumMonth5 || 0)}
+                        {numberFormat(row.sumMonth5)}
                       </TableCell>
                       <TableCell align="right">
-                        {numberFormat(row.sumMonth4 || 0)}
+                        {numberFormat(row.sumMonth4)}
                       </TableCell>
                       <TableCell align="right">
-                        {numberFormat(row.sumMonth3 || 0)}
+                        {numberFormat(row.sumMonth3)}
                       </TableCell>
                       <TableCell align="right">
-                        {numberFormat(row.sumMonth2 || 0)}
+                        {numberFormat(row.sumMonth2)}
                       </TableCell>
                       <TableCell align="right">
-                        {numberFormat(row.sumMonth1 || 0)}
+                        {numberFormat(row.sumMonth1)}
                       </TableCell>
                       <TableCell align="right">
                         <span
@@ -96,7 +96,7 @@ const TableProfit: FC<{ rows: IMoySklad[] }> = ({ rows }) => {
                               : "text-red-500"
                           }`}
                         >
-                          {numberFormat(row.sumMonth0 || 0)}
+                          {numberFormat(row.sumMonth0)}
                         </span>
                       </TableCell>
                       <TableCell align="right">{row.marginMonth0}</TableCell>
