@@ -3,6 +3,7 @@ import { FC, Suspense } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 import ErrorElement from "../components/ErrorElement/ErrorElement";
 import TotalSum from "../components/TotalSum";
+import SelectStatuses from "./../components/SelectStatuses/SelectStatuses";
 import TableProfit from "./../components/TableProfit";
 import { getProfits } from "./../services/getProfits";
 
@@ -11,7 +12,10 @@ const ProfitPage: FC = () => {
 
   return (
     <>
-      <div className="font-bold text-2xl mb-5">Прибыльность</div>
+      <div className="flex justify-between items-center">
+        <div className="font-bold text-2xl mb-5">Прибыльность</div>
+        <SelectStatuses />
+      </div>
 
       <Suspense
         fallback={
@@ -35,6 +39,9 @@ const ProfitPage: FC = () => {
 
 export default ProfitPage;
 
-export const Loader = async () => {
-  return defer({ data: getProfits() });
+export const Loader = async ({ request }: any) => {
+  const url = new URL(request.url);
+  const stateName = url.searchParams.get("stateName");
+
+  return defer({ data: getProfits(stateName) });
 };
