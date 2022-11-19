@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
@@ -13,4 +13,4 @@ const Layout: FC = () => {
   );
 };
 
-export default Layout;
+export default memo(Layout);
