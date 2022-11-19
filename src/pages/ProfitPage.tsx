@@ -12,7 +12,7 @@ const ProfitPage: FC = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-col sm:flex-row">
         <div className="font-bold text-2xl mb-5">Прибыльность</div>
         <SelectStatuses />
       </div>
